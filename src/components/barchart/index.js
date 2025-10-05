@@ -43,11 +43,10 @@
       .attr("transform", `translate(0, ${height})`)
       .call(d3.axisBottom(x)
         .tickFormat(d => data.find(dd => dd.group === d)?.label ?? d)
-      );
+      ).selectAll("text")
+      .attr("fill", "black");
   
     xAxis.selectAll("text")
-      .attr("stroke", 'black')
-      .attr("stroke-width", "1")
       .attr("transform", "rotate(-30)")  // ← rotate for readability
       .style("text-anchor", "end")       // ← align to end so they don't clip
       .style("font-size", "11px");
@@ -58,12 +57,11 @@
       .range([height, 0]);
   
     svg.append("g")
-      .attr("stroke", 'black')
-      .attr("stroke-width", "1")
       .call(
         d3.axisLeft(y)
           .tickValues(d3.range(0, 5000 + 1, 1000)) // 0, 1000, ..., 5000
-      );
+      ).selectAll("text")
+      .attr("fill", "black");
   
     // Inner scale for subgroups (norm / used)
     const xSubgroup = d3.scaleBand()
@@ -74,7 +72,7 @@
     // Color palette for bars
     const color = d3.scaleOrdinal()
       .domain(subgroups)
-      .range(["#377eb8", "#e41a1c"]); // norm, used
+      .range(["#ededed", "#30c73a"]); // norm, used
   
     // === DRAW BARS ===
     svg.append("g")
