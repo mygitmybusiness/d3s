@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Minimal LESS Project</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://d3js.org/d3.v7.js"></script>
+</head>
+
+<body>
+    <h1>H1!</h1>
+    <div class="main">
+        <h2 class="title">Progressbar</h2>
+        <div class="container bg-white">
+            <div class="component progressbar">
+                <h3 class="title">Goal: <span class="result">55</span> kg</h3>
+                <div class="bar-wrapper">
+                    <div class="bar-heading">
+                        <p class="start">0</p>
+                        <p class="end">55</p>
+                    </div>
+                    <div class="progress">
+                        <div class="progress__bar" style="--value:99%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="title">Donut-Pie Chart</h2>
+        <div class="container bg-white">
+            <div id="donutchart"></div>
+        </div>
+        <h2 class="title">Line Chart</h2>
+        <div class="container bg-white">
+            <div id="chart-container"></div>
+        </div>
+        <h2 class="title">Grouped Bar Chart</h2>
+        <div class="container bg-white">
+            <div id="barchart-container"></div>
+        </div>
+    </div>
+</body>
+<script src="./components/donut/index.js" defer></script>
+<script src="./components/linechart/index.js" defer></script>
+<script src="./components/barchart/index.js" defer></script>
+
+</html>

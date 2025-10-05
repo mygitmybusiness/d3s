@@ -1,0 +1,45 @@
+.progressbar {
+    .title {
+        margin: 0;
+    };
+}
+.bar-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bar-heading {
+    display: flex;
+    justify-content: space-between;
+    height: min-content;
+
+    p {
+        margin: .3rem 0;
+    }
+}
+
+@bg: lightgrey;
+@fg: green;
+@height: 1rem;
+@radius: 9999px;
+@label: #111;
+
+.progress {
+  position: relative;
+  width: 100%;
+  height: @height;
+  background: @bg;
+  border-radius: @radius;
+  overflow: hidden;               // важливо, щоб обрізати внутрішню смужку
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  .progress__bar {
+    height: 100%;
+    width: var(--value, 0);
+    background: linear-gradient(90deg, @fg, lighten(@fg, 10%));
+    border-radius: inherit;
+    transition: width .3s ease;
+  }
+}
